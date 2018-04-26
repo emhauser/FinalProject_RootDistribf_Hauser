@@ -1,2 +1,2 @@
 ##Final Project Packages
-SoilPack <- c("SoilMatrix2","Hmisc", "tidyr","ggplot2")
+SoilPack <- c("Hmisc", "tidyr","ggplot2")
