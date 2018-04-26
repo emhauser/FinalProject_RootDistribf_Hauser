@@ -42,6 +42,8 @@ Researchers collected soil samples from 5 forest replicates, each containing a p
   
 #Results
 
+ Correlation matrices of all root distribution, root C, P-fraction, and soil elemental variables demonstrate strong positive correlations between root distribution, SOC, and Ca for both hardwood and pine forests (Fig. 2). Depth-indicator colors suggest that relationships between root distributions and P-fractions may be depth-dependent, requiring closer analysis. 
+ 
 <!--A chunk to set up data and Rmd settings for prelim data analyses--> 
 ```{r setup, include=F}
 source("RootsPackages.R")
@@ -60,32 +62,34 @@ source("CPRootData.R")
 
 
 <!--A chunk to make correlation matrix plots-->
-```{r prelim, echo=FALSE, fig.cap= "Figure 2. Plots of soil phosphorus and soil carbon fractions with depth in hardwood profiles sampled at the Calhoun Experimental forest. Graphs show organic P, inorganic P, extractable organic carbon, and carbon allocated to the P-mobilizing enzyme phosphatase."}
+```{r prelim, echo=FALSE, fig.cap= "Figure 2. A) Correlation matrix showing relationships between root distributions, P-fractions, Ca, Mg, and K in Hardwood forests at the Calhoun Critical Zone Observatory, including Pearson's correlation coefficient. B) Plots of those same data relationships for Pine forests at Calhoun." out.width='.49\\linewidth', fig.width=3, fig.height=3,fig.show='hold',fig.align='center'}
 SoilRainbowStats(HWSoilDat, 1, 175, 17, 25)
 SoilRainbowStats(PineSoilDat, 1, 175, 17, 25)
 ```
 
-<!--A chunk to make a dataframe that contains all 4 extrapolated datasets-->
-```{r SetUpData, include=FALSE}
-#Make dataframe of interpolated values
-SoilSummDat <- as.data.frame(4:175)
-colnames(SoilSummDat) <- "Depth"
-SoilSummDat$Pi <- data_fill(PiFra, datReturn = T)
-SoilSummDat$Po <- data_fill(PoFra, datReturn = T)
-SoilSummDat$EOC <- data_fill(EOC, datReturn = T)
-SoilSummDat$AP <- data_fill(AP, datReturn = T)
-soildat <- SoilSummDat[42:172, ]
-PoAP <- soil_stats_simple(soildat$Po, soildat$AP)
-PiEOC <- soil_stats_simple(soildat$Pi, soildat$EOC)
 
-#Code I will need for inline r below:
-#PoAP$p.value
-#PoAP$estimate
-#PiEOC$p.value
-#PiEOC$estimate
+Upon closer analysis, we observe opposing trends between roots and available P_o_ vs. roots and available P_g_ in shallow vs. deep hardwood soils (Fig. 3). 
+
+We also observe depth-dependent relationships between roots and Ca, as well as roots and K in undisturbed hardwoods (Figs. 4 & 5). Trends in pine forests are less distinct, but appear to be stronger in surface soils than deep soils (Figs. 4 & 5). 
+
+<!--A chunk to make P Figure-->
+```{r P figs, include=FALSE}
+
 ```
 
-With increasing soil depth, data shows that organic P (Po) declines, while inorganic P (Pi) increases (Fig. 2). Extractable organic C (EOC)--a proxy for organic acid exudates that preform P-releasing reactions with P-containing minerals--declines with depth, while C allocation to acid phosphatase (AP) enzymes that mobilize P from organic molecules show inconsistent distributions (Fig. 2). Acid phosphatase appears to show a strong negative correlation with Po pools (R =`r PoAP$estimate`, p = `r PoAP$p.value`). Although EOC appears to show a negative correlation with Pi (R =`r PiEOC$estimate`, p = `r PiEOC$p.value`), the relationship between EOC and Pi appears to be weaker than the relationship between Po and AP. 
+<!--A chunk to make Ca, K figures -->
+```{r CaKFigs, include=F}
+``` 
+
+
+In pine forests, we observed trends between root distribution and multiple P fractions that were similar to those same trends in much deeper hardwood forests. Shown here for residual P, deep roots in hardwood forests track residual P to a comparable extent as shallower roots in pine forests (Fig. 6).
+
+<!--A chunk for depth-translation of P relationships between HW and Pine -->
+```{r PdepthShift, include=F}
+```
+
+<!--With increasing soil depth, data shows that organic P (Po) declines, while inorganic P (Pi) increases (Fig. 2). Extractable organic C (EOC)--a proxy for organic acid exudates that preform P-releasing reactions with P-containing minerals--declines with depth, while C allocation to acid phosphatase (AP) enzymes that mobilize P from organic molecules show inconsistent distributions (Fig. 2). Acid phosphatase appears to show a strong negative correlation with Po pools (R =`r PoAP$estimate`, p = `r PoAP$p.value`). Although EOC appears to show a negative correlation with Pi (R =`r PiEOC$estimate`, p = `r PiEOC$p.value`), the relationship between EOC and Pi appears to be weaker than the relationship between Po and AP. -->
+
 
 #Discussion
 Recent studies suggest that plants allocate their C resources to nutrient acquisition in ways that maximize the nutrient return on C investment [@LynchandHo2005]. Therefore, we might expect that roots would exude relatively more organic acid exudates in the presence of inorganic, P-bearing minerals, while acid phosphatse enzymes would be exuded in the presence of P-containing organic matter. However, preliminary simplified analyses show negative correlations between Po and AP, as well as Pi and EOC. Some authors posit that root exudate production is a response to low nutrient availability, such that increasing nutrient pools of either form may lessen the presence of C-exudates in the soil profile [@BeverandJi2016]. My early analyses may support this latter hypothesis. 
