@@ -28,7 +28,6 @@ output: html_document
 soilPit1 <- "https://nicholas.duke.edu/cczo/soilpits/R2H1-PROFILE-PA200226.JPG"
 soilPit2 <- "https://nicholas.duke.edu/cczo/soilpits/R2P1-PROFILE-PA200224.JPG"
 knitr::include_graphics(c(soilPit1, soilPit2))
-![Alt text](https://nicholas.duke.edu/cczo/soilpits/R2H1-PROFILE-PA200226.JPG)
 ```
 
 ###Data Collection
@@ -41,29 +40,29 @@ Researchers collected soil samples from 5 forest replicates, each containing a p
 
   We finally visualized these relationship using the `SoilRainbowStats()` function of the SoilMatrix2 package, which not only illuminates the strongest correlations in these datasets, but also visualizes depth-dependent relationships embedded within correlations via its graphing color scheme. Thus, we were able to tell what resources roots in these systems track most strongly and how those responses change with depth and land use history. 
   
-#Preliminary Results
+#Results
 
 <!--A chunk to set up data and Rmd settings for prelim data analyses--> 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-#source("Data_Import_Function.R")
-source("Data_Extrapolate_Function.R")
-source("Soil_Stats_function.R")
-#Note: I have been continuing to have trouble with my Data_Import function, so I am also loading some of the files here to make sure the proposal script will knit. Once I debug the Data_Import function, I should not need the read.csv lines of code below.
+```{r setup, include=F}
+source("RootsPackages.R")
+install.packages(SoilPack)
+library(tidyr)
+library(ggplot2)
+library(Hmisc)
+devtools::install_github("emhauser/RPackageHW_Hauser/SoilMatrix2")
+library(SoilMatrix2)
 ```
 
-<!--A chunk to make prelim results plots-->
+<!--A chunk to import datasets, which have been interpolated and organized in an R script-->
+```{r datasource, include=F}
+source("CPRootData.R")
+```
+
+
+<!--A chunk to make correlation matrix plots-->
 ```{r prelim, echo=FALSE, fig.cap= "Figure 2. Plots of soil phosphorus and soil carbon fractions with depth in hardwood profiles sampled at the Calhoun Experimental forest. Graphs show organic P, inorganic P, extractable organic carbon, and carbon allocated to the P-mobilizing enzyme phosphatase."}
-#Make graphs of several P and C responses of interest
-par(mfrow=c(2,2))
-PoFra <- read.csv("PoFract.csv")
-PiFra <- read.csv("PiFract.csv")
-EOC <- read.csv("EOC.csv")
-AP <- read.csv("AP.csv")
-data_fill(PoFra, xlab = "Organic Phosphorus (mgP/kg soil)", datReturn = F)
-data_fill(PiFra, xlab = "Inorganic Phosphorus (mgP/kg soil)", datReturn = F)
-data_fill(EOC, xlab = "Extractable Organic Carbon (mgC/g soil)", datReturn = F)
-data_fill(AP, xlab = "Acid Phosphatase Carbon (mgC/g soil)", datReturn = F)
+SoilRainbowStats(HWSoilDat, 1, 175, 17, 25)
+SoilRainbowStats(PineSoilDat, 1, 175, 17, 25)
 ```
 
 <!--A chunk to make a dataframe that contains all 4 extrapolated datasets-->
