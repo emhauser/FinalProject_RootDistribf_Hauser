@@ -153,11 +153,11 @@ We also observed depth-dependent relationships between roots and Ca in deep hard
 
 
 <!--A chunk to make Ca, K figures -->
-```{r CaFigs, echo=F, fig.cap="Figure 5. "}
+```{r CaFigs, echo=F, fig.cap="Figure 5. Fraction of roots in deep (100-175cm) hardwood forests, where nutrients elements are expected to be mineral-bound, compared to calcium weight percent of soil."}
 
 HWDeep<-HWSoilDat[100:175,]
 par(mfrow = c(1,1))
-plot(HWDeep$Roots~HWDeep$Ca, col = depth_colTot, cex.axis = 1.25, cex.lab = 1.5, pch = 19, main = "Deep", ylab = "Fraction of Roots, Hardwood(%)", xlab = "Ca (%)")
+plot(HWDeep$Roots~HWDeep$Ca, col = depth_colTot, cex.axis = 1.25, cex.lab = 1.5, pch = 19, main = "", ylab = "Fraction of Roots, Hardwood(%)", xlab = "Ca (%)")
 summary(lm(HWDeep$Roots~HWDeep$Ca))
   legend('bottomright', legend = rpCa, bty = 'n', cex = 0.5)
 
@@ -171,10 +171,35 @@ rpCa[2] = substitute(expression(italic(p) == MYOTHERVALUE),
 ``` 
 
 
-In pine forests, we observed trends between root distribution and multiple P fractions that were similar to those same trends in much deeper hardwood forests. Shown here for residual P, deep roots in hardwood forests track residual P to a comparable extent as shallower roots in pine forests (Fig. 6).
+In pine forests, we observed correlations between root distribution and P fractions that were similar to those same correlations in much deeper hardwood forests. Shown here for residual P, deep roots in hardwood forests track residual P to a similar degree as shallower roots in pine forests (Fig. 6).
 
 <!--A chunk for depth-translation of P relationships between HW and Pine -->
-```{r PdepthShift, echo=F, fig.cap="Figure 6."}
+```{r PdepthShift, echo=F, fig.cap="Figure 6. Fraction of fine roots in deep soils compared to residual phosphorus (mg P per kg soil) in deep hardwood forest (150-175cm) and mid-depth pine forest (50-80cm) soil profiles."}
+HWDeep<-HWSoilDat[175:150,]
+PineDeep<-PineSoilDat[80:50,]
+par(mfrow = c(1,2))
+plot(HWDeep$Roots~HWDeep$Residual, cex.axis = 1.25, cex.lab = 1.5, col = depth_colTot, pch = 19, main = "Hardwood", ylab = "Fraction of Roots in Profile (%)", xlab = "Residual P (mg/kg)")
+  legend('bottomright', legend = rpHW, bty = 'n', cex = 0.5)
+plot(PineDeep$Roots~PineDeep$Residual, cex.axis = 1.25, cex.lab = 1.5, col = depth_colTot, pch = 19, main = "Pine", ylab = "", xlab = "Residual P (mg/kg)")
+  legend('bottomright', legend = rpPine, bty = 'n', cex = 0.5)
+
+  
+r2HW = summary(lm(HWDeep$Roots~HWDeep$Residual))$r.squared
+pHW= summary(lm(HWDeep$Roots~HWDeep$Residual))$coefficients[2,4]
+rpHW = vector('expression',2)
+rpHW[1] = substitute(expression(italic(R)^2 == MYVALUE),
+                         list(MYVALUE = format(r2HW,dig=3)))[2]
+rpHW[2] = substitute(expression(italic(p) == MYOTHERVALUE),
+                         list(MYOTHERVALUE = format(pHW, digits = 2)))[2]
+
+
+r2Pine = summary(lm(PineDeep$Roots~PineDeep$Residual))$r.squared
+pPine= summary(lm(PineDeep$Roots~PineDeep$Residual))$coefficients[2,4]
+rpPine = vector('expression',2)
+rpPine[1] = substitute(expression(italic(R)^2 == MYVALUE),
+                     list(MYVALUE = format(r2Pine,dig=3)))[2]
+rpPine[2] = substitute(expression(italic(p) == MYOTHERVALUE),
+                     list(MYOTHERVALUE = format(pPine, digits = 2)))[2]
 ```
 
 
