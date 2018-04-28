@@ -154,6 +154,20 @@ We also observed depth-dependent relationships between roots and Ca in deep hard
 
 <!--A chunk to make Ca, K figures -->
 ```{r CaFigs, echo=F, fig.cap="Figure 5. "}
+
+HWDeep<-HWSoilDat[100:175,]
+par(mfrow = c(1,1))
+plot(HWDeep$Roots~HWDeep$Ca, col = depth_colTot, cex.axis = 1.25, cex.lab = 1.5, pch = 19, main = "Deep", ylab = "Fraction of Roots, Hardwood(%)", xlab = "Ca (%)")
+summary(lm(HWDeep$Roots~HWDeep$Ca))
+  legend('bottomright', legend = rpCa, bty = 'n', cex = 0.5)
+
+r2Ca= summary(lm(HWDeep$Roots~HWDeep$Ca))$r.squared
+pCa = summary(lm(HWDeep$Roots~HWDeep$Ca))$coefficients[2,4]
+rpCa = vector('expression',2)
+rpCa[1] = substitute(expression(italic(R)^2 == MYVALUE),
+                         list(MYVALUE = format(r2Ca,dig=3)))[2]
+rpCa[2] = substitute(expression(italic(p) == MYOTHERVALUE),
+                         list(MYOTHERVALUE = format(pCa, digits = 2)))[2]
 ``` 
 
 
