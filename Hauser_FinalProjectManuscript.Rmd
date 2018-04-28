@@ -3,28 +3,29 @@ title: "Rooting system strategies for acquiring organic vs. mineral nutrients "
 author: "Emma Hauser"
 params:
   today: !r.Sys.Date
-bibliography: ProposalRefs.bib
+#bibliography: ProposalRefs.bib
 output: html_document
 ---
-#Abstract
+##Abstract
  Plant rooting systems appear to have different strategies for obtaining nutrients from organic vs. inorganic nutrient sources. Such varied strategies may have implications for how plants allocate carbon in soil ecosystems. In this study, I propose to track correlations between root-derived carbon pools and pools of inorganic and organic soil phosphorus from the Calhoun Critical Zone Observatory, SC. Preliminary analyses suggest that roots may exude less belowground carbon in the presence of increased soil P resources, but further analyses are needed to clarify whether plant rooting systems show meaningful C responses to soil P distributions. 
 
-#Introduction
-    Carbon (C) is the currency through which plants meet life’s demands. After CO~2~ uptake, plants redistribute C for growth, using it either to build new cells or obtain nutrients from soils [@AberMelillo2001]. Although scientists have focused on plant C allocation in terms of aboveground productivity, up to 60% of phosynthetically fixed C can be redistributed to rooting systems that serve as plants’ primary nutrient conduits [@NewmannRomheld2001]. Belowground C serves numerous purposes including fine root proliferation, which increases absorptive root surface area for nutrient uptake, and production of C-compounds, called exudates, that break down nutrient-containing material after release into the surrounding soil matrix [@Roviera1969]. Although exudates can come either directly from roots or from root-associated mycorrhizal fungi, both sources represent an investment of plant C. As such, exudates are costly: the plant can no longer use that C for growth [@Roviera1969, @Bunemann2011]. Thus, plants tend to allocate more C belowground when nutrients are limited [@Bunemann2011, @JiBever2016].   
+##Introduction
+Carbon (C) is the currency through which plants meet life’s demands. After CO~2~ uptake, plants redistribute C for growth, using it either to build new cells or obtain nutrients from soils [@AberMelillo2001]. Although scientists have focused on plant C allocation in terms of aboveground productivity, up to 60% of phosynthetically fixed C can be redistributed to rooting systems that serve as plants’ primary nutrient conduits [@NewmannRomheld2001]. Belowground C serves numerous purposes including fine root proliferation, which increases absorptive root surface area for nutrient uptake, and production of C-compounds, called exudates, that break down nutrient-containing material after release into the surrounding soil matrix [@Roviera1969]. Although exudates can come either directly from roots or from root-associated mycorrhizal fungi, both sources represent an investment of plant C. As such, exudates are costly: the plant can no longer use that C for growth [@Roviera1969, @Bunemann2011]. Thus, plants tend to allocate more C belowground when nutrients are limited [@Bunemann2011, @JiBever2016].   
       We know root systems and their associated biogeochemical processes propagate meters deep in some ecosystems, highlighting the extensive role of rooting system processes in belowground C storage and turnover [@Maeght2013, @Billings2018]. Yet our knowledge of soil C-cycling remains limited because most studies focus on the upper 30cm of soils, leaving a great deal of uncertainty about rooting system function, particularly where roots grow deep [@RichterBillings2015]. Conventional viewpoints suggest that deep roots are primarily for water uptake, but more recent studies indicate that many plants obtain their water from the uppermost 60cm of a soil profile [@Gaines2016], leading to inferences that plant C allocation to deep roots may be directed at nutrient acquisition [@Hasenmueller2017]. Although biologic activity and organic matter are concentrated in uppermost soil horizons [@RichterMarkewitz2001, @Billings2018], these surface conditions may be challenging for root nutrient acquisition. Not only is there greater competition from neighboring plants and microbes, but nutrients are present primarily as large organic molecules requiring decay and subsequent mineralization before mobilization for root uptake [@Zhu2016]. In contrast, deep soils may be rich in relatively unweathered soil mineral nutrients, but roots must reach sufficient depth to access them.
      The capacity for rooting system strategies to enhance nutrient availability may depend on which of the above nutrient forms dominates different depths within the soil system. Different rooting system exudates—from either roots or their mycorrhizae—can mobilize nutrients through distinct chemical reactions with mineral vs. organic nutrient forms [@Bunemann2011]. For example, enzyme exudates release nutrient ions by cleaving monomers from organic matter [@MarschnerRengel2007, @Bunemann2011], while organic acid-generating anions induce inorganic nutrient ion solubility through ligand exchange and desorption reactions with soil minerals [@SatoComerford2006]. Roots and their mycorrhizal symbionts may leverage enzymes, organic anions, or some combination of the two for nutrient acquisition [@MarschnerRengel2007], although the different processes by which exudates mobilize nutrients suggest that plants may receive greater nutrient benefits from organic anions where mineral nutrients are present and from enzymes in the presence of organic matter. In addition, the C-cost of exudate production further complicates the benefits of these rooting strategies, as enzyme production may require considerably more plant C than organic anion production, while reaching deep mineral-nutrient pools may necessitate considerable C for root growth [@Leake2008, @MarschnerRengel2007, @LynchHo2005]. Thus, the depth-associated exchange between plant C-resources belowground and nutrient uptake may determine the fate of fixed C in ecosystems, as well as the means of plant nutrient acquisition.
      Any depth-dependent tradeoff between C allocation for accessing deep mineral vs. shallow organic nutrient pools may be altered or even reversed with land use change. For instance, tillage-driven erosion exposes deep, relatively mineral-rich soil horizons, resulting in soil profiles containing more mineral nutrients than otherwise expected [@RichterMarkewitz2001, @Yoo2015]. In this case, shallow soil may harbor more reactive mineral surface area than might be anticipated, and thus may be more reactive to chemical weathering agents like root-derived organic acids, similar to deep soils [@Fortner2011, @Yoo2015]. In addition, many previously farmed lands received mineral fertilizer, modifying nutrient stocks even decades post-abandonment [@Richter2006]. Such shifts in the depths and relative abundances of mineral vs. organic nutrients imply that plants change their strategies to maximize nutrient acquisition, potentially lessening deep C cycling [@Brantley2017]. However, we do not know what compounds comprise deep root carbon exudates and whether roots receive considerable nutrient benefits from deep C investments [@Billings2018]. Thus, the function of root C remains unclear, preventing projections about how and why soil C depth distributions will shift with land use change. An analysis of root exudate composition and root distribution relative to the distribution of nutrient forms in soil profiles would illuminate changes in root C allocation and nutrient acquisition strategies as the abundance of organic- vs. mineral-derived nutrients changes with soil depth and land use history.
-     In this study, I will attempt to examine the extent to which roots track mineral and/or organic nutrient pools in forest soil profiles up to 2m deep. This will allow me to test that hypothesis that *rooting systems exhibit plasticity in nutrient acquisition strategies, such that roots track mineral nutrient pools where those are relatively more available due to the lower C-cost of organic acid exudate production. Conversely, roots will track organic matter derived nutrient pools in soil profiles where few fresh mineral surfaces remain.*
-     *Where humans have altered the landscape in ways that deplete surface horizons’ organic matter stocks (i.e. tillage, fertilization, and deforestation) I expect that root distributions will be shallower and will change nutrient acquisition mechanisms to produce more organic acid exudates at shallower depths, thus leveraging more shallow mineral-rich material.* 
+     In this study, I will attempt to examine the extent to which roots track mineral and/or organic nutrient pools in forest soil profiles up to 2m deep. This will allow me to test that hypothesis that 
+     _rooting systems exhibit plasticity in nutrient acquisition strategies, such that roots track mineral nutrient pools where those are relatively more available due to the lower C-cost of organic acid exudate production. Conversely, roots will track organic matter derived nutrient pools in soil profiles where few fresh mineral surfaces remain._  
+     _Where humans have altered the landscape in ways that deplete surface horizons’ organic matter stocks (i.e. tillage, fertilization, and deforestation) I expect that root distributions will be shallower and will change nutrient acquisition mechanisms to produce more organic acid exudates at shallower depths, thus leveraging more shallow mineral-rich material._ 
      If this hypothesis is accepted, it suggests an under-appreciated mechanism by which human impacts—here historic land use—can alter deep soil C inputs. Deviation from this observation would suggest that rooting system patterns are genetically-based, species-specific traits, or that exudates behave synergistically and may be exuded in mixtures that enhance nutrient availability more than a single exudate alone [@Vance2003]. 
-      To examine this hypothesis I will focus on phosphorous (P), because it is available from both organic matter- and mineral-derived sources [@Vitousek1997]. In addition, rooting systems are thought to have P-specific exudate responses including phosphatase enzyme exudation in the presence of organic P (P_o_), and production of organic acids like oxalic, malic and citric acid that have been shown to mobilize mineral-bound P (P_g_) [@MarschnerRengel2007]. Thus, using P as a model nutrient allows us to examine variations in rooting system distributions as organic vs. mineral pools of the same nutrient change across soil type and depth, clarifying how plants allocate C for a vital resource. 
+      To examine this hypothesis I will focus on phosphorous (P), because it is available from both organic matter- and mineral-derived sources [@Vitousek1997]. In addition, rooting systems are thought to have P-specific exudate responses including phosphatase enzyme exudation in the presence of organic P (P~o~), and production of organic acids like oxalic, malic and citric acid that have been shown to mobilize mineral-bound P (P~g~) [@MarschnerRengel2007]. Thus, using P as a model nutrient allows us to examine variations in rooting system distributions as organic vs. mineral pools of the same nutrient change across soil type and depth, clarifying how plants allocate C for a vital resource. 
      
 
-#Methods  
+##Methods  
 ###Study site
-     I am conducting this study at the Calhoun Critical Zone Observatory, SC, which is home to both 200-year-old hardwood forests and ~80-year-old post-agricultural pine forests. The pine forests grow on land previously plowed for >100 y, and frequently fertilized with P-rich mineral fertilizer. As in most soils that do not contain buried O or A horizons, surface soils in both forest types are relatively P_o_-rich and harbor minerals with low P content; with increasing depth, relative abundances of mineral P_g_ increase and P_o_ decreases. In pine forests, P_g_ remains relatively high in surface horizons due to historic erosion and fertilization (Richter et al. 2006). 
+I am conducting this study at the Calhoun Critical Zone Observatory, SC, which is home to both 200-year-old hardwood forests and ~80-year-old post-agricultural pine forests. The pine forests grow on land previously plowed for >100 y, and frequently fertilized with P-rich mineral fertilizer. As in most soils that do not contain buried O or A horizons, surface soils in both forest types are relatively P_o_-rich and harbor minerals with low P content; with increasing depth, relative abundances of mineral P~g~ increase and P~o~ decreases. In pine forests, P~g~ remains relatively high in surface horizons due to historic erosion and fertilization (Richter et al. 2006). 
 
-```{r, echo=FALSE, fig.cap="Figure 1. A) Image of a hardwood forest soil pit sampled at the Calhoun Critical Zone Observatory.", out.height="50%", out.width="50%", extra.out='angle=90'}
+```{r, echo=FALSE, fig.cap="Figure 1. A) Image of a hardwood forest soil pit sampled at the Calhoun Critical Zone Observatory.", out.height="50%", out.width="50%", extra.out='angle=180'}
 soilPit1 <- "https://nicholas.duke.edu/cczo/soilpits/R2H1-PROFILE-PA200226.JPG"
 soilPit2 <- "https://nicholas.duke.edu/cczo/soilpits/R2P1-PROFILE-PA200224.JPG"
 knitr::include_graphics(c(soilPit1, soilPit2))
@@ -40,17 +41,15 @@ Researchers collected soil samples from 5 forest replicates, each containing a p
 
   We finally visualized these relationship using the `SoilRainbowStats()` function of the SoilMatrix2 package, which not only illuminates the strongest correlations in these datasets, but also visualizes depth-dependent relationships embedded within correlations via its graphing color scheme. Thus, we were able to tell what resources roots in these systems track most strongly and how those responses change with depth and land use history. 
   
-#Results
+##Results
 
  Correlation matrices of all root distribution, root C, P-fraction, and soil elemental variables demonstrate strong positive correlations between root distribution, SOC, and Ca for both hardwood and pine forests (Fig. 2). Depth-indicator colors suggest that relationships between root distributions and P-fractions may be depth-dependent, requiring closer analysis. 
  
 <!--A chunk to set up data and Rmd settings for prelim data analyses--> 
 ```{r setup, include=F}
 source("RootsPackages.R")
-install.packages(SoilPack)
-library(tidyr)
-library(ggplot2)
-library(Hmisc)
+NewPack <- SoilPack[!SoilPack %in% rownames(installed.packages())]
+if(length(NewPack)) install.packages(NewPack, repos = "http://cran.us.r-project.org")
 devtools::install_github("emhauser/RPackageHW_Hauser/SoilMatrix2")
 library(SoilMatrix2)
 ```
@@ -61,34 +60,108 @@ source("CPRootData.R")
 ```
 
 
-<!--A chunk to make correlation matrix plots-->
-```{r prelim, echo=FALSE, fig.cap= "Figure 2. A) Correlation matrix showing relationships between root distributions, P-fractions, Ca, Mg, and K in Hardwood forests at the Calhoun Critical Zone Observatory, including Pearson's correlation coefficient. B) Plots of those same data relationships for Pine forests at Calhoun." out.width='.49\\linewidth', fig.width=3, fig.height=3,fig.show='hold',fig.align='center'}
+<!--A chunk to make first correlation matrix plot-->
+```{r hwMat, echo=F, fig.cap= "A)"}
 SoilRainbowStats(HWSoilDat, 1, 175, 17, 25)
+```
+
+<!--A chunk to make second correlation matrix plot-->
+```{r prelim, echo=FALSE, include=T, fig.cap="Figure 2. A) Correlation matrix showing relationships between root distributions, P-fractions, Ca, Mg, and K in Hardwood forests at the Calhoun Critical Zone Observatory, including Pearson's correlation coefficient. B) Plots of those same data relationships for Pine forests at Calhoun."}
 SoilRainbowStats(PineSoilDat, 1, 175, 17, 25)
 ```
 
 
-Upon closer analysis, we observe opposing trends between roots and available P_o_ vs. roots and available P_g_ in shallow vs. deep hardwood soils (Fig. 3). 
 
-We also observe depth-dependent relationships between roots and Ca, as well as roots and K in undisturbed hardwoods (Figs. 4 & 5). Trends in pine forests are less distinct, but appear to be stronger in surface soils than deep soils (Figs. 4 & 5). 
+Our observation of strong correlation between roots and SOC encouraged closer analysis of these plots (Fig. 3). 
+
+<!--A chunk to make SOC plots-->
+```{r SOC, echo=F, fig.cap="Figure 3. Plots of percent root fraction vs. soil organic carbon for a complete soil profile, lower half of the soil profile, and deepest sampling horizon in hardwood forest soil samples at the Calhoun CZO."}
+HWDeep<-HWSoilDat[175:100,]
+HWMid<-HWSoilDat[175:50,]
+HWTotal<-HWSoilDat[175:1,]
+depth_colTot <- rev(colorspace::rainbow_hcl(nrow(HWTotal)))
+par(mfrow = c(1,3), mar = c(4.5,5,3,3))
+plot(HWTotal$Roots~HWTotal$SOC, col = depth_colTot, cex.lab = 2, cex = 2, pch = 19, main = "Deep (0-175cm)", ylab = "Fraction of Roots in Profile (%)", xlab = "")
+plot(HWMid$Roots~HWMid$SOC, col = depth_colTot, cex.lab = 2, cex = 2, pch = 19, main = "Mid (50-175cm)", ylab = "", xlab = "SOC (gC gsoil-1)")
+plot(HWDeep$Roots~HWDeep$SOC, col = depth_colTot, cex.lab = 2, cex = 2, pch = 19, main = "Total (100-175cm)", xlab = "", ylab = "")
+```
+
+
+When shallower depths are included, there is a strong positive correlation between roots and SOC (R^2^= `r round(summary(lm(HWTotal$Roots~HWTotal$SOC))$r.squared, digits = 3)`; p= `r round(summary(lm(HWTotal$Roots~HWTotal$SOC))$coefficients[2,4])`)
+As shallower horizons are removed the correlation between roots and SOC weakens, such that roots appear to have a lower correlation with SOC in deeper soils (mid-depth: R^2^= `r round(summary(lm(HWMid$Roots~HWMid$SOC))$r.squared, digits = 3)`; p= `r round(summary(lm(HWMid$Roots~HWMid$SOC))$coefficients[2,4])`, deepest horizons: R^2^= `r round(summary(lm(HWDeep$Roots~HWDeep$SOC))$r.squared, digits = 3)`; p= `r round(summary(lm(HWDeep$Roots~HWDeep$SOC))$coefficients[2,4])`). 
+
+
+
+Upon closer analysis, we observed opposing trends between roots and available P~o~, measured in HCO~3~ extracts compared to roots and available P~g~ measured in HCL extracts in shallow vs. deep hardwood soils (Fig. 4). 
 
 <!--A chunk to make P Figure-->
-```{r P figs, include=FALSE}
+```{r P figs, echo=F, fig.cap="Figure 4. Root distributions relative to organic phosphorus (HCO3 Po) fractions and inorganic, mineral-bound phosphorus fractions (HCl Pi)  in deep (150-175cm) soil horizons and shallow (0-50cm) horizons at the Calhoun CZO."}
+
+HWDeep<-HWSoilDat[100:175,]
+HWShallow <-HWSoilDat[50:1,]
+par(mfrow = c(2,2))
+
+plot(HWShallow$Roots~HWShallow$HCO3.Po., cex.main = 1.5, cex.axis = 1.25, cex.lab = 1.5, col = depth_colTot, pch = 19, main = "Shallow", ylab = "Fraction of Roots in Profile", xlab = "Mineralizable Po (HCO3 Po mg/kg)")
+  legend('bottomright', legend = rpSPo, bty = 'n', cex = 0.5)
+plot(HWDeep$Roots~HWDeep$HCO3.Po.,cex.main = 1.5, cex.axis = 1.25, cex.lab = 1.5, col = depth_colTot, pch = 19, main = "Deep", ylab = "", xlab = "Mineralizable Po (HCO3 Po mg/kg)")
+  legend('topright', legend = rpDeepPo, bty = 'n', cex = 0.5)
+plot(HWShallow$Roots~HWShallow$Con.HCL.Pi., cex.axis = 1.25, cex.lab = 1.5, col = depth_colTot, pch = 19, main = "", ylab = "Fraction of Roots in Profile", xlab = "HCl Pi (mg/kg)")
+  legend('topright', legend = rpSPi, bty = 'n', cex = 0.5)
+plot(HWDeep$Roots~HWDeep$Con.HCL.Pi., cex.axis = 1.25, cex.lab = 1.5, col = depth_colTot, pch = 19, main = "", ylab = "", xlab = "HCl Pi (mg/kg)")
+  legend('bottomright', legend = rpDeepPi, bty = 'n', cex = 0.5)
+
+  #Make Legends with R2 and p values. If time, this could be made more modular.
+r2PiD = summary(lm(HWDeep$Roots~HWDeep$Con.HCL.Pi.))$r.squared
+pPiD = summary(lm(HWDeep$Roots~HWDeep$Con.HCL.Pi.))$coefficients[2,4]
+rpDeepPi = vector('expression',2)
+rpDeepPi[1] = substitute(expression(italic(R)^2 == MYVALUE), 
+                   list(MYVALUE = format(r2PiD,dig=3)))[2]
+rpDeepPi[2] = substitute(expression(italic(p) == MYOTHERVALUE), 
+                   list(MYOTHERVALUE = format(pPiD, digits = 2)))[2]
+
+
+r2PiS = summary(lm(HWShallow$Roots~HWShallow$Con.HCL.Pi.))$r.squared
+pPiS = summary(lm(HWShallow$Roots~HWShallow$Con.HCL.Pi.))$coefficients[2,4]
+rpSPi = vector('expression',2)
+rpSPi[1] = substitute(expression(italic(R)^2 == MYVALUE), 
+                         list(MYVALUE = format(r2PiS,dig=3)))[2]
+rpSPi[2] = substitute(expression(italic(p) == MYOTHERVALUE), 
+                         list(MYOTHERVALUE = format(pPiS, digits = 2)))[2]
+
+
+r2PoD = summary(lm(HWDeep$Roots~HWDeep$HCO3.Po.))$r.squared
+pPoD = summary(lm(HWDeep$Roots~HWDeep$HCO3.Po.))$coefficients[2,4]
+rpDeepPo = vector('expression',2)
+rpDeepPo[1] = substitute(expression(italic(R)^2 == MYVALUE), 
+                         list(MYVALUE = format(r2PoD,dig=3)))[2]
+rpDeepPo[2] = substitute(expression(italic(p) == MYOTHERVALUE), 
+                         list(MYOTHERVALUE = format(pPoD, digits = 2)))[2]
+
+
+r2PoS = summary(lm(HWShallow$Roots~HWShallow$HCO3.Po.))$r.squared
+pPoS = summary(lm(HWShallow$Roots~HWShallow$HCO3.Po.))$coefficients[2,4]
+rpSPo = vector('expression',2)
+rpSPo[1] = substitute(expression(italic(R)^2 == MYVALUE), 
+                         list(MYVALUE = format(r2PoS,dig=3)))[2]
+rpSPo[2] = substitute(expression(italic(p) == MYOTHERVALUE), 
+                         list(MYOTHERVALUE = format(pPoS, digits = 2)))[2]
 
 ```
 
+
+We also observed depth-dependent relationships between roots and Ca in deep hardwood soils (Fig. 5). Although Ca data are bulk elemental measurements, deep Ca stocks are likely derived from soil minerals rather than organic matter. 
+
+
 <!--A chunk to make Ca, K figures -->
-```{r CaKFigs, include=F}
+```{r CaFigs, echo=F, fig.cap="Figure 5. "}
 ``` 
 
 
 In pine forests, we observed trends between root distribution and multiple P fractions that were similar to those same trends in much deeper hardwood forests. Shown here for residual P, deep roots in hardwood forests track residual P to a comparable extent as shallower roots in pine forests (Fig. 6).
 
 <!--A chunk for depth-translation of P relationships between HW and Pine -->
-```{r PdepthShift, include=F}
+```{r PdepthShift, echo=F, fig.cap="Figure 6."}
 ```
-
-<!--With increasing soil depth, data shows that organic P (Po) declines, while inorganic P (Pi) increases (Fig. 2). Extractable organic C (EOC)--a proxy for organic acid exudates that preform P-releasing reactions with P-containing minerals--declines with depth, while C allocation to acid phosphatase (AP) enzymes that mobilize P from organic molecules show inconsistent distributions (Fig. 2). Acid phosphatase appears to show a strong negative correlation with Po pools (R =`r PoAP$estimate`, p = `r PoAP$p.value`). Although EOC appears to show a negative correlation with Pi (R =`r PiEOC$estimate`, p = `r PiEOC$p.value`), the relationship between EOC and Pi appears to be weaker than the relationship between Po and AP. -->
 
 
 #Discussion
