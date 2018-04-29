@@ -31,7 +31,7 @@ To examine this hypothesis I will focus on phosphorous (P), because it is availa
 ###Study site
 I am conducting this study at the Calhoun Critical Zone Observatory, SC, which is home to both 200-year-old hardwood forests and ~80-year-old post-agricultural pine forests. The pine forests grow on land previously plowed for >100 y, and frequently fertilized with P-rich mineral fertilizer. As in most soils that do not contain buried O or A horizons, surface soils in both forest types are relatively P~o~-rich and harbor minerals with low P content; with increasing depth, relative abundances of mineral P~g~ increase and P~o~ decreases. In pine forests, P~g~ remains relatively high in surface horizons due to historic erosion and fertilization (Richter et al. 2006). 
 
-```{r, echo=FALSE, fig.cap="Figure 1. A) Image of a hardwood forest soil pit sampled at the Calhoun Critical Zone Observatory.", out.height="50%", out.width="50%", angle=90}
+```{r, echo=FALSE, fig.cap="Figure 1. Image of a hardwood forest soil pit sampled at the Calhoun Critical Zone Observatory.", out.height="50%", out.width="50%"}
 soilPit1 <- "https://nicholas.duke.edu/cczo/soilpits/R2H1-PROFILE-PA200226.JPG"
 soilPit2 <- "https://nicholas.duke.edu/cczo/soilpits/R2P1-PROFILE-PA200224.JPG"
 knitr::include_graphics(soilPit1)
