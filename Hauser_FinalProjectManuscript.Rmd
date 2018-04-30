@@ -10,6 +10,16 @@ output: html_document
  Plant rooting systems may have different strategies for obtaining nutrients from organic vs. inorganic nutrient sources. Such varied strategies have implications for how plants allocate carbon (C) in soil ecosystems. In this study, we track correlations between root abundance and pools of both mineral- and organic matter- bound nutrients at the Calhoun Critical Zone Observatory, SC. Results suggest that roots may track mineral-bound nutrient pools where those nutrient elements are relatively more available. Further analyses of rooting system C distribution are needed to clarify the energetic drivers behind plant nutrient acquisition mechanisms. These findings, in conjunction with future C analyses, will help determine how plants achieve sufficient nutrition, particularly as nutrient forms shift due to anthropogenic land use change. 
  
 ##Introduction
+<!--A chunk to set up data and Rmd settings for prelim data analyses--> 
+```{r setup, include=F}
+source("RootsPackages.R")
+NewPack <- SoilPack[!SoilPack %in% rownames(installed.packages())]
+if(length(NewPack)) install.packages(NewPack, repos = "http://cran.us.r-project.org")
+devtools::install_github("emhauser/RPackageHW_Hauser/SoilMatrix2")
+library(magick)
+library(SoilMatrix2)
+```
+
 Carbon (C) is the currency through which plants meet life’s demands. After CO~2~ uptake, plants redistribute C for growth, using it either to build new cells or obtain nutrients from soils [@AberMelillo2001]. Although scientists have focused on plant C allocation in terms of aboveground productivity, up to 60% of phosynthetically fixed C can be redistributed to rooting systems that serve as plants’ primary nutrient conduits [@NewmannRomheld2001]. Belowground C serves numerous purposes including fine root proliferation, which increases absorptive root surface area for nutrient uptake, and production of C-compounds, called exudates, that break down nutrient-containing material after release into the surrounding soil matrix [@Roviera1969]. Although exudates can come either directly from roots or from root-associated mycorrhizal fungi, both sources represent an investment of plant C. As such, exudates are costly: the plant can no longer use that C for growth [@Roviera1969, @Bunemann2011]. Thus, plants tend to allocate more C belowground when nutrients are limited [@Bunemann2011, @JiBever2016].  
 
 We know root systems and their associated biogeochemical processes propagate meters deep in some ecosystems, highlighting the extensive role of rooting system processes in belowground C storage and turnover [@Maeght2013, @Billings2018]. Yet our knowledge of soil C-cycling remains limited because most studies focus on the upper 30cm of soils, leaving a great deal of uncertainty about rooting system function, particularly where roots grow deep [@RichterBillings2015]. Conventional viewpoints suggest that deep roots are primarily for water uptake, but more recent studies indicate that many plants obtain their water from the uppermost 60cm of a soil profile [@Gaines2016], leading to inferences that plant C allocation to deep roots may be directed at nutrient acquisition [@Hasenmueller2017]. Although biologic activity and organic matter are concentrated in uppermost soil horizons [@RichterMarkewitz2001, @Billings2018], these surface conditions may be challenging for root nutrient acquisition. Not only is there greater competition from neighboring plants and microbes, but nutrients are present primarily as large organic molecules requiring decay and subsequent mineralization before mobilization for root uptake [@Zhu2016]. In contrast, deep soils may be rich in relatively unweathered soil mineral nutrients, but roots must reach sufficient depth to access them.  
@@ -32,9 +42,11 @@ To examine this hypothesis I will focus on phosphorous (P), because it is availa
 I am conducting this study at the Calhoun Critical Zone Observatory, SC, which is home to both 200-year-old hardwood forests and ~80-year-old post-agricultural pine forests. The pine forests grow on land previously plowed for >100 y, and frequently fertilized with P-rich mineral fertilizer. As in most soils that do not contain buried O or A horizons, surface soils in both forest types are relatively P~o~-rich and harbor minerals with low P content; with increasing depth, relative abundances of mineral P~g~ increase and P~o~ decreases. In pine forests, P~g~ remains relatively high in surface horizons due to historic erosion and fertilization (Richter et al. 2006). 
 
 ```{r, echo=FALSE, fig.cap="Figure 1. Image of a hardwood forest soil pit sampled at the Calhoun Critical Zone Observatory.", out.height="50%", out.width="50%"}
-soilPit1 <- "https://nicholas.duke.edu/cczo/soilpits/R2H1-PROFILE-PA200226.JPG"
-soilPit2 <- "https://nicholas.duke.edu/cczo/soilpits/R2P1-PROFILE-PA200224.JPG"
-knitr::include_graphics(soilPit1)
+#soilPit1 <- "https://nicholas.duke.edu/cczo/soilpits/R2H1-PROFILE-PA200226.JPG"
+pic <- image_read("https://nicholas.duke.edu/cczo/soilpits/R2H1-PROFILE-PA200226.JPG")
+pic %>%
+  image_rotate(90)
+#knitr::include_graphics(soilPit1)
 ```
 
 ###Data Collection
@@ -50,15 +62,6 @@ Researchers collected soil samples from 5 forest replicates, each containing a p
 ##Results
 
  Correlation matrices of all root distribution, root C, P-fraction, and soil elemental variables demonstrate strong positive correlations between root distribution, SOC, and Ca for both hardwood and pine forests (Fig. 2). Depth-indicator colors suggest that relationships between root distributions and P-fractions may be depth-dependent, requiring closer analysis. 
- 
-<!--A chunk to set up data and Rmd settings for prelim data analyses--> 
-```{r setup, include=F}
-source("RootsPackages.R")
-NewPack <- SoilPack[!SoilPack %in% rownames(installed.packages())]
-if(length(NewPack)) install.packages(NewPack, repos = "http://cran.us.r-project.org")
-devtools::install_github("emhauser/RPackageHW_Hauser/SoilMatrix2")
-library(SoilMatrix2)
-```
 
 <!--A chunk to import datasets, which have been interpolated and organized in an R script-->
 ```{r datasource, include=F}
