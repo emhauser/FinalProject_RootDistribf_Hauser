@@ -1,7 +1,8 @@
 ##StatsGraphsFunction_PR()##
 
-#This function takes 2 vectors, one specifying an x variable, on specifying a y variable, plots them against each other,
+#This function takes 2 vectors, one specifying an x variable, one specifying a y variable, plots them against each other,
 # and returns a graph of the plot with the adjusted R2 and p-value printed in the corner legend.
+# Currently, the function is set to be specific to root distribution datasets.
 
 #Args
 # x = a vector of x variables
