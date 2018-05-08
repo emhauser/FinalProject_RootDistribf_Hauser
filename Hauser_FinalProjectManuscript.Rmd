@@ -83,6 +83,11 @@ SoilRainbowStats(PineSoilDat, 1, 175, 17, 25)
 
 Our observation of strong correlation between roots and SOC encouraged closer analysis of these plots (Fig. 3). 
 
+<!--A chunk to source new graphing code, made after original draft for better modularity and cleaner code -->
+```{r PRFunc, echo=F}
+source("PR_Fun.R")
+```
+
 <!--A chunk to make SOC plots-->
 ```{r SOC, echo=F, fig.cap="Figure 3. Plots of percent root fraction vs. soil organic carbon for a complete soil profile, lower half of the soil profile, and deepest sampling horizon in hardwood forest soil samples at the Calhoun CZO."}
 HWDeep<-HWSoilDat[175:100,]
@@ -90,9 +95,9 @@ HWMid<-HWSoilDat[175:50,]
 HWTotal<-HWSoilDat[175:1,]
 depth_colTot <- rev(colorspace::rainbow_hcl(nrow(HWTotal)))
 par(mfrow = c(1,3), mar = c(4.5,5,3,3))
-plot(HWTotal$Roots~HWTotal$SOC, col = depth_colTot, cex.lab = 2, cex = 2, pch = 19, main = "Deep (0-175cm)", ylab = "Fraction of Roots in Profile (%)", xlab = "")
-plot(HWMid$Roots~HWMid$SOC, col = depth_colTot, cex.lab = 2, cex = 2, pch = 19, main = "Mid (50-175cm)", ylab = "", xlab = "SOC (gC gsoil-1)")
-plot(HWDeep$Roots~HWDeep$SOC, col = depth_colTot, cex.lab = 2, cex = 2, pch = 19, main = "Total (100-175cm)", xlab = "", ylab = "")
+PR(y=HWTotal$Roots, x=HWTotal$SOC, main = "Deep (0-175cm)", xlab = "")
+PR(y=HWMid$Roots, x=HWMid$SOC, main = "Mid (50-175cm)", xlab = "SOC (gC gsoil-1)")
+PR(y=HWDeep$Roots, x=HWDeep$SOC, main = "Total (100-175cm)", xlab = "")
 ```
 
 
@@ -110,52 +115,12 @@ HWDeep<-HWSoilDat[100:175,]
 HWShallow <-HWSoilDat[50:1,]
 par(mfrow = c(2,2))
 
-#Make Legends with R2 and p values. If time, this could be made more modular.
-r2PiD = summary(lm(HWDeep$Roots~HWDeep$Con.HCL.Pi.))$r.squared
-pPiD = summary(lm(HWDeep$Roots~HWDeep$Con.HCL.Pi.))$coefficients[2,4]
-rpDeepPi = vector('expression',2)
-rpDeepPi[1] = substitute(expression(italic(R)^2 == MYVALUE), 
-                   list(MYVALUE = format(r2PiD,dig=3)))[2]
-rpDeepPi[2] = substitute(expression(italic(p) == MYOTHERVALUE), 
-                   list(MYOTHERVALUE = format(pPiD, digits = 2)))[2]
+#Make plots with R2 and p values.
 
-
-r2PiS = summary(lm(HWShallow$Roots~HWShallow$Con.HCL.Pi.))$r.squared
-pPiS = summary(lm(HWShallow$Roots~HWShallow$Con.HCL.Pi.))$coefficients[2,4]
-rpSPi = vector('expression',2)
-rpSPi[1] = substitute(expression(italic(R)^2 == MYVALUE), 
-                         list(MYVALUE = format(r2PiS,dig=3)))[2]
-rpSPi[2] = substitute(expression(italic(p) == MYOTHERVALUE), 
-                         list(MYOTHERVALUE = format(pPiS, digits = 2)))[2]
-
-
-r2PoD = summary(lm(HWDeep$Roots~HWDeep$HCO3.Po.))$r.squared
-pPoD = summary(lm(HWDeep$Roots~HWDeep$HCO3.Po.))$coefficients[2,4]
-rpDeepPo = vector('expression',2)
-rpDeepPo[1] = substitute(expression(italic(R)^2 == MYVALUE), 
-                         list(MYVALUE = format(r2PoD,dig=3)))[2]
-rpDeepPo[2] = substitute(expression(italic(p) == MYOTHERVALUE), 
-                         list(MYOTHERVALUE = format(pPoD, digits = 2)))[2]
-
-
-r2PoS = summary(lm(HWShallow$Roots~HWShallow$HCO3.Po.))$r.squared
-pPoS = summary(lm(HWShallow$Roots~HWShallow$HCO3.Po.))$coefficients[2,4]
-rpSPo = vector('expression',2)
-rpSPo[1] = substitute(expression(italic(R)^2 == MYVALUE), 
-                         list(MYVALUE = format(r2PoS,dig=3)))[2]
-rpSPo[2] = substitute(expression(italic(p) == MYOTHERVALUE), 
-                         list(MYOTHERVALUE = format(pPoS, digits = 2)))[2]
-
-
-plot(HWShallow$Roots~HWShallow$HCO3.Po., cex.main = 1.5, cex.axis = 1, cex.lab = 1.25, col = depth_colTot, pch = 19, main = "Shallow", ylab = "Fraction of Roots in Profile", xlab = "Mineralizable Po (HCO3 Po mg/kg)")
-  legend('bottomright', legend = rpSPo, bty = 'n', cex = 0.5)
-plot(HWDeep$Roots~HWDeep$HCO3.Po.,cex.main = 1.5, cex.axis = 1, cex.lab = 1.25, col = depth_colTot, pch = 19, main = "Deep", ylab = "", xlab = "Mineralizable Po (HCO3 Po mg/kg)")
-  legend('topright', legend = rpDeepPo, bty = 'n', cex = 0.5)
-plot(HWShallow$Roots~HWShallow$Con.HCL.Pi., cex.axis = 1, cex.lab = 1.25, col = depth_colTot, pch = 19, main = "", ylab = "Fraction of Roots in Profile", xlab = "HCl Pi (mg/kg)")
-  legend('topright', legend = rpSPi, bty = 'n', cex = 0.5)
-plot(HWDeep$Roots~HWDeep$Con.HCL.Pi., cex.axis = 1, cex.lab = 1.25, col = depth_colTot, pch = 19, main = "", ylab = "", xlab = "HCl Pi (mg/kg)")
-  legend('bottomright', legend = rpDeepPi, bty = 'n', cex = 0.5)
-
+PR(y=HWShallow$Roots, x= HWShallow$HCO3.Po., cex.main = 1.5, cex.axis = 1, cex.lab = 1.25, main = "Shallow", xlab = "Mineralizable Po (HCO3 Po mg/kg)")
+PR(y=HWDeep$Roots, x=HWDeep$HCO3.Po.,cex.main = 1.5, cex.axis = 1, cex.lab = 1.25, main = "Deep", xlab = "Mineralizable Po (HCO3 Po mg/kg)")
+PR(y=HWShallow$Roots, x=HWShallow$Con.HCL.Pi., cex.axis = 1, cex.lab = 1.25,main = "", xlab = "HCl Pi (mg/kg)")
+PR(y=HWDeep$Roots, x=HWDeep$Con.HCL.Pi., cex.axis = 1, cex.lab = 1.25, main = "", xlab = "HCl Pi (mg/kg)")
 ```
 
 
@@ -167,17 +132,7 @@ We also observed depth-dependent relationships between roots and Ca in deep hard
 
 HWDeep<-HWSoilDat[100:175,]
 par(mfrow = c(1,1))
-
-r2Ca= summary(lm(HWDeep$Roots~HWDeep$Ca))$r.squared
-pCa = summary(lm(HWDeep$Roots~HWDeep$Ca))$coefficients[2,4]
-rpCa = vector('expression',2)
-rpCa[1] = substitute(expression(italic(R)^2 == MYVALUE),
-                         list(MYVALUE = format(r2Ca,dig=3)))[2]
-rpCa[2] = substitute(expression(italic(p) == MYOTHERVALUE),
-                         list(MYOTHERVALUE = format(pCa, digits = 2)))[2]
-
-plot(HWDeep$Roots~HWDeep$Ca, col = depth_colTot, cex.axis = 1.25, cex.lab = 1.5, pch = 19, main = "", ylab = "Fraction of Roots, Hardwood(%)", xlab = "Ca (%)")
-  legend('bottomright', legend = rpCa, bty = 'n', cex = 0.5)
+PR(y=HWDeep$Roots, x=HWDeep$Ca, cex.axis = 1.25, cex.lab = 1.5, main = "", xlab = "Ca (%)")
 ``` 
 
 
@@ -189,27 +144,8 @@ HWDeep<-HWSoilDat[175:150,]
 PineDeep<-PineSoilDat[80:50,]
 par(mfrow = c(1,2))
 
-r2HW = summary(lm(HWDeep$Roots~HWDeep$Residual))$r.squared
-pHW= summary(lm(HWDeep$Roots~HWDeep$Residual))$coefficients[2,4]
-rpHW = vector('expression',2)
-rpHW[1] = substitute(expression(italic(R)^2 == MYVALUE),
-                         list(MYVALUE = format(r2HW,dig=3)))[2]
-rpHW[2] = substitute(expression(italic(p) == MYOTHERVALUE),
-                         list(MYOTHERVALUE = format(pHW, digits = 2)))[2]
-
-
-r2Pine = summary(lm(PineDeep$Roots~PineDeep$Residual))$r.squared
-pPine= summary(lm(PineDeep$Roots~PineDeep$Residual))$coefficients[2,4]
-rpPine = vector('expression',2)
-rpPine[1] = substitute(expression(italic(R)^2 == MYVALUE),
-                     list(MYVALUE = format(r2Pine,dig=3)))[2]
-rpPine[2] = substitute(expression(italic(p) == MYOTHERVALUE),
-                     list(MYOTHERVALUE = format(pPine, digits = 2)))[2]
-
-plot(HWDeep$Roots~HWDeep$Residual, cex.axis = 1.25, cex.lab = 1.5, col = depth_colTot, pch = 19, main = "Hardwood", ylab = "Fraction of Roots in Profile (%)", xlab = "Residual P (mg/kg)")
-  legend('bottomright', legend = rpHW, bty = 'n', cex = 0.5)
-plot(PineDeep$Roots~PineDeep$Residual, cex.axis = 1.25, cex.lab = 1.5, col = depth_colTot, pch = 19, main = "Pine", ylab = "", xlab = "Residual P (mg/kg)")
-  legend('bottomright', legend = rpPine, bty = 'n', cex = 0.5)
+PR(y=HWDeep$Roots, x=HWDeep$Residual, cex.axis = 1.25, cex.lab = 1.5, main = "Hardwood", xlab = "Residual P (mg/kg)")
+PR(y=PineDeep$Roots, x=PineDeep$Residual, cex.axis = 1.25, cex.lab = 1.5, main = "Pine", xlab = "Residual P (mg/kg)")
 ```
 
 
